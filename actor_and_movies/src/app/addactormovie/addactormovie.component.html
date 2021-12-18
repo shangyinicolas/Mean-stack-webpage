@@ -1,0 +1,46 @@
+<div class="form-group">
+
+
+    <div class="section">
+        <table class="table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Birth Year</th>
+            
+          </tr>
+          <tr *ngFor="let item of actorsDB">
+            <td>{{item.name}}</td>
+            <td>{{item.bYear}}</td>
+            
+          </tr>
+        </table>
+      </div>
+
+    <table class="table table-striped">
+        <tr>
+          <th>Title</th>
+          <th>Movie Year</th>
+          <th>actor</th>
+        </tr>
+        <tr *ngFor="let item of moviesDB">
+          <td>{{item.title}}</td>
+          <td>{{item.year}}</td>
+          <td>{{item.actors}}</td>
+        </tr>
+      </table>
+
+
+    <label for="movie">Movie</label>
+  <select id="movie" class="form-control" [(ngModel)]="movieTitle">
+    <option *ngFor="let item of moviesDB">{{item.title}}</option>
+  </select>
+
+  <label for="actor">Add Actor</label>
+  <select id="actor" class="form-control" [(ngModel)]="fullName">
+    <option *ngFor="let item of actorsDB">{{item.name}}</option>
+  </select>
+
+
+
+</div>
+<button type="submit" class="btn btn-primary" (click)="onAddMovie()">Add</button>
